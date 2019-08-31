@@ -1,5 +1,5 @@
 #[derive(Deserialize)]
 pub struct ZGUIVersionShield {
-    version: String,
-    version_type: String
+    pub version: String,
+    pub version_type: String
 }
