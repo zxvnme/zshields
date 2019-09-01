@@ -10,6 +10,7 @@ use projects::zgui::funcs::*;
 
 #[catch(404)]
 fn not_found(req: &rocket::Request) -> Html<String> {
+    // Please, do not remove disclaimer here. Thanks in advance <3
     Html(format!("<h3>Sorry but '{}' doesnt seem to be valid.</h3>
                   <p>try one of them instead:<p>
                   <ul>
@@ -17,7 +18,8 @@ fn not_found(req: &rocket::Request) -> Html<String> {
                   <li>/zgui/version_type</li>
                   <li>/zgui/discord</li>
                   </ul>
-                  <h3>zshields made with ❤️</h3>", req.uri()))
+                  <h3>zshields made with ❤️</h3>
+                  <h4>Copyright (c) 2019 zxvnme under MIT License</h4>", req.uri()))
 }
 
 fn main() {
