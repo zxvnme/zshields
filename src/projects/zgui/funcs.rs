@@ -5,7 +5,7 @@ use crate::projects::zgui::utils;
 
 #[get("/version")]
 pub fn zgui_version() -> Result<JsonValue, reqwest::Error> {
-    let json: structs::ZGUIVersionShield = serde_json::from_str(utils::get_zgui_info()?.as_str()).unwrap();
+    let zgui: structs::ZGUIRepositoryInfo = serde_json::from_str(utils::get_zgui_info()?.as_str()).unwrap();
 
     Ok(json!({
         "schemaVersion": 1,
@@ -13,13 +13,13 @@ pub fn zgui_version() -> Result<JsonValue, reqwest::Error> {
         "labelColor": "000000",
         "style": "for-the-badge",
         "color": "212121",
-        "message": json.version,
+        "message": zgui.version,
     }))
 }
 
 #[get("/version_type")]
 pub fn zgui_version_type() -> Result<JsonValue, reqwest::Error> {
-    let json: structs::ZGUIVersionShield = serde_json::from_str(utils::get_zgui_info()?.as_str()).unwrap();
+    let zgui: structs::ZGUIRepositoryInfo = serde_json::from_str(utils::get_zgui_info()?.as_str()).unwrap();
 
     Ok(json!({
         "schemaVersion": 1,
@@ -27,7 +27,7 @@ pub fn zgui_version_type() -> Result<JsonValue, reqwest::Error> {
         "labelColor": "000000",
         "style": "for-the-badge",
         "color": "212121",
-        "message": json.version_type,
+        "message": zgui.version_type,
     }))
 }
 
