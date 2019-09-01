@@ -25,14 +25,34 @@ fn zgui_version() -> Result<JsonValue, reqwest::Error> {
     Ok(json!({
         "schemaVersion": 1,
         "label": "VERSION",
+        "labelColor": "000000",
         "style": "for-the-badge",
+        "color": "212121",
         "message": json.version,
-        "color": "000000"
+    }))
+}
+
+#[get("/version_type")]
+fn zgui_version_type() -> Result<JsonValue, reqwest::Error> {
+    let response = reqwest::Client::new()
+        .get("https://raw.githubusercontent.com/zxvnme/zgui/zgui-2.0/zgui.json")
+        .send()?
+        .text()?;
+
+    let json: ZGUIVersionShield = serde_json::from_str(response.as_str()).unwrap();
+
+    Ok(json!({
+        "schemaVersion": 1,
+        "label": "TYPE",
+        "labelColor": "000000",
+        "style": "for-the-badge",
+        "color": "212121",
+        "message": json.version_type,
     }))
 }
 
 fn main() {
     rocket::ignite()
-        .mount("/zgui", routes![zgui_version])
+        .mount("/zgui", routes![zgui_version, zgui_version_type])
         .launch();
 }
