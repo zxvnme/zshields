@@ -1,11 +1,11 @@
 <div align="center">
 <img width="503" src="resources/zshields.png" alt="zshields logo">
-<a href="https://shields.zxvn.me/">shields.zxvn.me</a>
 </div>
 
 #
-**zshields** is simple rest api written in Rust
- with purpose of being custom endpoints for shields.io to provide all `Z Projects` beautiful badges for their README.
+**zshields** is simple Rest API (currently hosted at [shields.zxvn.me](https://shields.zxvn.me/)) written in Rust
+ with purpose of being custom endpoints for shields.io to provide 
+ all `Z Projects` beautiful badges for their README.
 #
 
 List of currently supported projects and its badges with short description.
