@@ -51,8 +51,22 @@ fn zgui_version_type() -> Result<JsonValue, reqwest::Error> {
     }))
 }
 
+#[get("/discord")]
+fn zgui_discord() -> Result<JsonValue, reqwest::Error> {
+    Ok(json!({
+        "schemaVersion": 1,
+        "label": "JOIN",
+        "labelColor": "7289DA",
+        "namedLogo": "Discord",
+        "logoColor": "FFFFFF",
+        "style": "for-the-badge",
+        "color": "212121",
+        "message": "THE COMMUNITY",
+    }))
+}
+
 fn main() {
     rocket::ignite()
-        .mount("/zgui", routes![zgui_version, zgui_version_type])
+        .mount("/zgui", routes![zgui_version, zgui_version_type, zgui_discord])
         .launch();
 }
